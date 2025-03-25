@@ -1,9 +1,13 @@
-package ONP;
-import java.io.Serializable;
+
+import java.io.*;
+import java.util.LinkedList;
+
+import KinoPack.*;
+import ONP.*;
 
 
 public class Main {
-    public static void testONP() {
+    public static void testONP(String[] args) {
         // 7 1 + 4 2 - 2 ^ * =
         String tmp = "";
         if (args.length == 0) {
@@ -36,6 +40,7 @@ public class Main {
         m.add(new Miejsce('D', 11));
         kino.kupBilet("Matrix", "kamil@urban.com", m);
 
+
         m.clear();
         m.add(new Miejsce('A', 2));
         m.add(new Miejsce('A', 1));
@@ -47,6 +52,7 @@ public class Main {
             ObjectOutputStream wy = new ObjectOutputStream(new FileOutputStream(".\\kino.dat"));
             wy.writeObject(kino);
             wy.close();
+
 
             ObjectInputStream we = new ObjectInputStream(new FileInputStream(".\\kino.dat"));
             kino2 = (Kino) we.readObject();
@@ -88,7 +94,7 @@ public class Main {
     }
     
     public static void main(String[] args) {
-        testONP();
+        testONP(args);
         testKino();
     }
 }
