@@ -92,9 +92,45 @@ public class Main {
             ex.printStackTrace();
         }
     }
+
+    public static void testSet() {
+        Set<Integer> zbior1 = new Set<>(10);
+        Set<Integer> zbior2 = new Set<>(10);
+
+        zbior1.dodajElement(5);
+        zbior1.dodajElement(3);
+        zbior1.dodajElement(8);
+        zbior1.dodajElement(1);
+
+        zbior2.dodajElement(3);
+        zbior2.dodajElement(7);
+        zbior2.dodajElement(8);
+
+        System.out.println("Zbiór 1: ");
+        System.out.println(zbior1.toString());
+
+        System.out.println("Zbiór 2: ");
+        System.out.println(zbior2.toString());
+
+        Set<Integer> przeciecie = zbior1.przeciecie(zbior2);
+        System.out.println("Przecięcie zbiorów: ");
+        System.out.println(przeciecie.toString());
+
+        zbior1.dodajElementy(zbior2);
+        System.out.println("Zbiór 1 z dodanymi elementami zbioru 2: ");
+        System.out.println(zbior1.toString());
+
+        zbior1.usunElement(5);
+        System.out.println("Zbiór 1 z usunietym elementem o wartosci 5: ");
+        System.out.println(zbior1.toString());
+
+        zbior1.usunElement(5);
+        System.out.println(zbior1.toString());
+    }
     
     public static void main(String[] args) {
         testONP(args);
         testKino();
+        testSet();
     }
 }
